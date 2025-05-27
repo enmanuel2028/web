@@ -1,0 +1,53 @@
+<section class="form-box">
+    <h2>Crear nueva cuenta</h2>
+  
+    <div class="input-field">
+      <label for="nombre">Nombre</label>
+      <input type="text" id="nombre" placeholder="Nombre" required />
+    </div>
+  
+    <div class="input-field">
+      <label for="apellidos">Apellidos</label>
+      <input type="text" id="apellidos" placeholder="Apellidos" required />
+    </div>
+  
+    <h3>Información de inicio de sesión</h3>
+  
+    <div class="input-field">
+      <label for="email">Email</label>
+      <input type="email" id="email" placeholder="Email" required />
+    </div>
+  
+    <div class="input-field">
+      <label for="password">Contraseña</label>
+      <input type="password" id="password" placeholder="Contraseña" required />
+    </div>
+    <small class="password-requirements">La contraseña debe contener al menos una mayúscula y un número.</small>
+  
+    <div class="input-field">
+      <label for="repeatPassword">Repetir contraseña</label>
+      <input type="password" id="repeatPassword" placeholder="Repetir contraseña" required />
+    </div>
+  
+    <div class="recaptcha-container">
+      <div class="recaptcha-box">
+        <input type="checkbox" id="robot" />
+        <label for="robot">No soy un robot</label>
+        <div class="recaptcha-logo">
+          <img src="https://www.gstatic.com/recaptcha/api2/logo_48.png" alt="reCAPTCHA" width="24" />
+        </div>
+      </div>
+      <div class="recaptcha-terms">
+        <small>reCAPTCHA</small>
+        <small><a href="#">Privacidad</a> - <a href="#">Términos</a></small>
+      </div>
+    </div>
+  
+    <button id="createAccountBtn" class="btn green">Crear cuenta</button>
+    <button id="facebookLoginBtn" class="btn blue">Accede con Facebook</button>
+    
+    <div class="form-footer">
+      <p>¿Ya tienes cuenta? <a href="#" id="goToLoginBtn">Iniciar sesión</a></p>
+    </div>
+  </section>
+  

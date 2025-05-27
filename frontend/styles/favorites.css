@@ -1,0 +1,69 @@
+/* Contenedor de la lista de favoritos con diseño en grid responsivo */
+.favorites-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); /* columnas flexibles con mínimo 220px */
+  gap: 16px; /* espacio entre tarjetas */
+  padding: 16px; /* espacio interno */
+}
+
+/* Cada tarjeta o ítem de favorito */
+.favorite-item {
+  border: 1px solid #ddd; /* borde gris claro */
+  border-radius: 8px; /* bordes redondeados */
+  padding: 12px; /* espacio interno */
+  background: #fff; /* fondo blanco */
+  display: flex; /* disposición en fila */
+  gap: 12px; /* espacio entre imagen y detalles */
+  align-items: center; /* alineación vertical centrada */
+}
+
+/* Imagen dentro del favorito */
+.favorite-item img {
+  width: 64px; /* ancho fijo */
+  height: 64px; /* alto fijo */
+  object-fit: cover; /* recorta imagen para llenar el área */
+  border-radius: 6px; /* esquinas ligeramente redondeadas */
+}
+
+/* Detalles del favorito: título */
+.favorite-details h3 {
+  margin: 0 0 4px 0; /* margen abajo pequeño */
+  font-size: 1.1rem; /* tamaño de fuente ligeramente mayor */
+  color: #3a763c; /* verde oscuro */
+}
+
+/* Detalles del favorito: descripción o texto adicional */
+.favorite-details p {
+  margin: 0 0 6px 0; /* margen abajo un poco más */
+  font-size: 0.85rem; /* texto pequeño */
+  color: #666; /* gris medio */
+}
+
+/* Texto destacado dentro de los detalles */
+.favorite-details strong {
+  color: #8cae00; /* verde */
+  font-weight: 700; /* negrita */
+}
+
+/* Tarjeta del producto que contiene el botón favorito */
+.product-card {
+  position: relative; /* para posicionar el botón en relación a la tarjeta */
+}
+
+/* Botón para marcar/desmarcar favorito */
+.favorite-btn {
+  position: absolute; /* posición absoluta dentro de .product-card */
+  top: 8px; /* separación superior */
+  right: 8px; /* separación derecha */
+  background: none; /* sin fondo */
+  border: none; /* sin borde */
+  cursor: pointer; /* cursor tipo mano */
+  font-size: 24px; /* tamaño del icono/botón */
+  color: #aaa; /* color gris claro */
+  transition: color 0.3s ease; /* transición suave para color */
+}
+
+/* Estado activo del botón favorito (cuando está marcado) */
+.favorite-btn.active {
+  color: #e74c3c; /* color rojo para indicar favorito */
+}

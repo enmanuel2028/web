@@ -1,0 +1,232 @@
+/* styles/account.css */
+
+/* Contenedor principal del formulario */
+.form-box {
+  max-width: 420px; /* ancho máximo fijo */
+  margin: 2rem auto; /* margen vertical y centrado horizontal */
+  background-color: #f8f8f8; /* fondo gris claro */
+  border-radius: 12px; /* esquinas redondeadas */
+  padding: 30px 35px; /* espacio interno arriba/abajo y derecha/izquierda */
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1); /* sombra suave */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* fuente moderna */
+  color: #333; /* color de texto gris oscuro */
+}
+
+/* Títulos principales y secundarios del formulario */
+.form-box h2, .form-box h3 {
+  font-weight: 700; /* texto en negrita */
+  margin-bottom: 20px; /* espacio debajo del título */
+  color: #222; /* texto más oscuro */
+  text-align: center; /* centrado horizontal */
+}
+
+/* Título h3 con margen superior y tamaño de fuente un poco menor */
+.form-box h3 {
+  margin-top: 25px;
+  font-size: 1.1rem;
+}
+
+/* Contenedor para cada campo del formulario */
+.input-field {
+  margin-bottom: 16px; /* espacio inferior entre campos */
+}
+
+/* Etiquetas de los campos */
+.input-field label {
+  display: block; /* etiqueta en bloque */
+  margin-bottom: 6px; /* espacio debajo de la etiqueta */
+  font-weight: 600; /* semi negrita */
+  color: #555; /* gris medio */
+  font-size: 0.95rem; /* tamaño un poco pequeño */
+}
+
+/* Campos de texto, email y contraseña */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 100%; /* ancho completo del contenedor */
+  padding: 14px 18px; /* espacio interno */
+  border-radius: 8px; /* bordes redondeados */
+  border: 1.5px solid #ddd; /* borde gris claro */
+  font-size: 1rem; /* tamaño de fuente estándar */
+  color: #333; /* color de texto */
+  box-sizing: border-box; /* incluir padding en ancho total */
+  transition: border-color 0.3s ease; /* transición suave para el borde */
+}
+
+/* Estilo cuando el campo está enfocado */
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+  border-color: #8cae00; /* borde verde */
+  outline: none; /* elimina borde por defecto */
+}
+
+/* Contenedor para inputs con iconos */
+.input-icon {
+  position: relative; /* para posicionar el icono dentro */
+}
+
+/* Estilo para el icono dentro del input */
+.input-icon span {
+  position: absolute; /* posición absoluta respecto al contenedor */
+  left: 14px; /* separado a la izquierda */
+  top: 50%; /* centrado vertical */
+  transform: translateY(-50%); /* corrección exacta para centrar */
+  color: #8cae00; /* color verde */
+  font-size: 1.3rem; /* tamaño más grande para icono */
+  pointer-events: none; /* el icono no captura clicks */
+}
+
+/* Ajuste padding para que el texto no quede sobre el icono */
+.input-icon input {
+  padding-left: 45px;
+}
+
+/* Enlace para "Olvidé mi contraseña" */
+.forgot-link {
+  display: block; /* ocupa toda la línea */
+  margin: 6px 0 16px; /* margen arriba y abajo */
+  font-size: 0.9rem; /* texto pequeño */
+  color: #4a90e2; /* color azul */
+  text-decoration: none; /* sin subrayado */
+  text-align: right; /* alineado a la derecha */
+}
+
+/* Hover para el enlace */
+.forgot-link:hover {
+  text-decoration: underline; /* subrayado al pasar mouse */
+}
+
+/* Contenedor para reCAPTCHA */
+.recaptcha-container {
+  margin: 20px 0; /* margen vertical */
+  border: 1px solid #e0e0e0; /* borde gris claro */
+  border-radius: 4px; /* esquinas redondeadas pequeñas */
+  overflow: hidden; /* recorta contenido que desborde */
+}
+
+/* Caja interna del reCAPTCHA */
+.recaptcha-box {
+  padding: 12px; /* espacio interno */
+  display: flex; /* flexbox para alinear elementos */
+  align-items: center; /* centrado vertical */
+  gap: 10px; /* espacio entre elementos */
+  font-size: 0.95rem; /* tamaño de texto medio */
+  color: #444; /* gris oscuro */
+  background-color: #f9f9f9; /* fondo casi blanco */
+}
+
+/* Logo del reCAPTCHA alineado a la derecha */
+.recaptcha-logo {
+  margin-left: auto;
+}
+
+/* Términos y condiciones de reCAPTCHA */
+.recaptcha-terms {
+  display: flex; /* flexbox para espacio entre texto y enlace */
+  justify-content: space-between; /* separa extremos */
+  padding: 6px 12px; /* padding cómodo */
+  background-color: #f1f1f1; /* fondo gris claro */
+  font-size: 0.8rem; /* texto pequeño */
+  color: #777; /* gris medio */
+}
+
+/* Enlaces dentro de términos */
+.recaptcha-terms a {
+  color: #777; /* mismo gris */
+  text-decoration: none; /* sin subrayado */
+}
+
+/* Hover para enlaces */
+.recaptcha-terms a:hover {
+  text-decoration: underline;
+}
+
+/* Botones generales */
+.btn {
+  width: 100%; /* ancho completo */
+  padding: 14px 0; /* padding vertical */
+  margin-top: 16px; /* margen superior */
+  border-radius: 30px; /* bordes muy redondeados */
+  font-weight: 700; /* texto en negrita */
+  font-size: 1.1rem; /* texto grande */
+  cursor: pointer; /* cursor de mano */
+  border: none; /* sin borde */
+  transition: background-color 0.3s ease; /* transición suave */
+}
+
+/* Botón verde */
+.btn.green {
+  background-color: #8cae00; /* verde */
+  color: white; /* texto blanco */
+}
+
+/* Hover botón verde */
+.btn.green:hover {
+  background-color: #728c00; /* verde oscuro */
+}
+
+/* Botón azul */
+.btn.blue {
+  background-color: #3b5998; /* azul Facebook */
+  color: white;
+}
+
+/* Hover botón azul */
+.btn.blue:hover {
+  background-color: #2d4373; /* azul oscuro */
+}
+
+/* Texto para requisitos de contraseña */
+.password-requirements {
+  font-size: 0.85rem; /* texto pequeño */
+  color: #bb0000; /* rojo fuerte */
+  margin-top: 4px; /* margen superior */
+  display: block; /* para que ocupe línea completa */
+}
+
+/* Pie de formulario (links de ayuda etc) */
+.form-footer {
+  margin-top: 25px;
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+/* Enlaces en pie de formulario */
+.form-footer a {
+  color: #4a90e2;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* Hover enlaces pie */
+.form-footer a:hover {
+  text-decoration: underline;
+}
+
+/* Botón para volver atrás */
+.back-btn {
+  background-color: #aaa; /* gris medio */
+  color: white;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+  margin-bottom: 12px;
+  padding: 6px 14px;
+  display: inline-block;
+}
+
+/* Hover botón volver */
+.back-btn:hover {
+  background-color: #888; /* gris más oscuro */
+}
+
+/* Botón volver versión pequeña */
+.back-btn.small {
+  font-size: 0.85rem;
+  padding: 4px 10px;
+  margin-bottom: 20px;
+}

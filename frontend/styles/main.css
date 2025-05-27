@@ -1,0 +1,294 @@
+@import './products.css'; /* Importa estilos adicionales para productos */
+
+/* Estilos base para toda la página */
+body {
+  font-family: Arial, sans-serif; /* Fuente sans-serif común */
+  margin: 0;
+  padding: 0;
+  background: #f8f9fa; /* Fondo gris muy claro */
+}
+
+/* Contenedor de la lista de productos en grid */
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columnas iguales */
+  gap: 24px; /* espacio entre productos */
+  padding: 24px; /* espacio interno */
+}
+
+/* Transiciones suaves para items de producto */
+.product-item {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform, box-shadow; /* optimiza animaciones */
+}
+
+/* Efecto hover que eleva y amplía ligeramente la tarjeta */
+.product-item:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.12); /* sombra suave */
+}
+
+/* Transición para acciones dentro del producto */
+.product-actions {
+  transition: all 0.2s ease-out 0.1s;
+}
+
+/* Etiqueta promocional en esquina superior derecha */
+.promo-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #ff4757; /* rojo brillante */
+  color: white;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 0.8em;
+}
+
+/* Responsive para pantallas muy pequeñas: una columna */
+@media (max-width: 400px) {
+  .product-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Estilos de cada producto */
+.product-item {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  padding: 16px;
+  width: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Imagen del producto con tamaño fijo y bordes redondeados */
+.product-item img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+/* Título del producto */
+.product-item h3 {
+  margin: 12px 0 8px 0;
+  font-size: 1.1em;
+}
+
+/* Descripción del producto */
+.product-item p {
+  font-size: 0.95em;
+  color: #555;
+  margin-bottom: 8px;
+}
+
+/* Precio o texto destacado */
+.product-item span {
+  font-weight: bold;
+  color: #2d8f5a; /* verde */
+  font-size: 1.1em;
+}
+
+/* Barra de navegación principal */
+.main-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  position: fixed; /* fija en la parte superior */
+  top: 0;
+  width: 100%;
+  background: white;
+  z-index: 1000; /* sobre otros elementos */
+}
+
+/* Logo en la barra de navegación */
+.nav-logo {
+  max-width: 150px;
+  height: auto;
+}
+
+/* Controles de navegación (botones, iconos) */
+.nav-controls {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+/* Responsive para pantallas pequeñas: cambia layout y tamaños */
+@media (max-width: 400px) {
+  .main-nav {
+    flex-direction: column;
+  }
+  
+  .nav-logo {
+    width: 100%;
+    max-width: 200px;
+    margin: 0 auto;
+  }
+  
+  .nav-controls {
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 1rem;
+  }
+}
+
+/* Contenedor del buscador */
+.search-container {
+  display: flex;
+  align-items: center;
+}
+
+/* Botón de búsqueda y otros íconos de navegación */
+.search-btn,
+.nav-icon {
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Contador pequeño para mostrar cantidad en carrito */
+.cart-counter {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background: #A3BE8C; /* verde claro */
+  color: white;
+  border-radius: 50%; /* círculo */
+  padding: 2px 6px;
+  font-size: 0.8rem;
+}
+
+/* Panel desplegable del carrito */
+.cart-panel {
+  position: absolute;
+  right: 1rem;
+  top: 100%; /* justo debajo del botón */
+  width: 320px;
+  background: white;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  border-radius: 8px;
+  padding: 1rem;
+  max-height: 70vh; /* altura máxima con scroll */
+  overflow-y: auto;
+  opacity: 0; /* oculto por defecto */
+  transform: translateY(-10px); /* desplazado arriba */
+  transition: all 0.3s ease;
+  visibility: hidden;
+}
+
+/* Cuando el panel es visible */
+.cart-panel.visible {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+}
+
+/* Cada item dentro del carrito */
+.cart-item {
+  display: flex;
+  gap: 1rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+/* Controles para modificar cantidad */
+.quantity-controls button {
+  background: #A3BE8C;
+  color: white;
+  border: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+/* Hover para botones de cantidad */
+.quantity-controls button:hover {
+  background: #8CA37F;
+}
+
+/* Estilos para links de autenticación (login/register) */
+.auth-links {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.auth-links a {
+  color: #A3BE8C;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.auth-links a:hover {
+  color: #8CA37F;
+  text-decoration: underline;
+}
+
+/* Grupo de formulario */
+.form-group {
+  margin-bottom: 1.2rem;
+  position: relative;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #4a5568; /* gris oscuro */
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #e2e8f0; /* borde gris claro */
+  border-radius: 6px;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #A3BE8C; /* borde verde al enfocar */
+  box-shadow: 0 0 0 3px rgba(163, 190, 140, 0.1); /* sombra verde suave */
+}
+
+/* Mensajes de error */
+.error-message {
+  color: #e53e3e; /* rojo */
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+  opacity: 0; /* oculto por defecto */
+  transition: opacity 0.3s ease;
+}
+
+/* Mostrar mensaje de error */
+.error-message.show {
+  opacity: 1;
+}
+
+/* Botón submit principal */
+button[type="submit"] {
+  width: 100%;
+  background: #A3BE8C; /* verde claro */
+  color: white;
+  padding: 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background: #8CA37F; /* verde más oscuro al hover */
+}
+
+/* Clase para ocultar elementos */
+.hidden {
+  display: none;
+}

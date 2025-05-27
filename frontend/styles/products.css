@@ -1,0 +1,311 @@
+/* --- Paginación --- */
+.pagination {
+  display: flex;
+  justify-content: flex-end; /* alineado a la derecha */
+  align-items: center;
+  gap: 8px; /* espacio entre botones */
+  margin: 24px 24px 40px; /* margenes arriba, lados y abajo */
+}
+
+.pagination button {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%; /* botones redondos */
+  border: none;
+  background: #f0f4e8; /* fondo verde muy claro */
+  color: #555; /* texto gris */
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Botón activo */
+.pagination button.active {
+  background: #A3BE8C; /* verde */
+  color: white;
+  font-weight: bold;
+}
+
+/* Efecto hover para botones no activos */
+.pagination button:hover:not(.active) {
+  background: #d0e0c0; /* verde muy claro */
+  color: #4a6940; /* verde oscuro */
+}
+
+
+/* --- Caja de filtro --- */
+.filter-box {
+  border: 1px solid #cddc39; /* borde verde lima */
+  border-radius: 12px;
+  padding: 20px;
+  background: #fff; /* fondo blanco */
+  max-width: 220px;
+  font-family: sans-serif;
+}
+
+.filter-box h3 {
+  margin-bottom: 10px;
+  color: #8cae00; /* verde */
+}
+
+/* Slider para precio */
+.price-slider {
+  width: 100%;
+  margin-bottom: 10px;
+  accent-color: #cddc39; /* color verde lima en controles */
+}
+
+/* Inputs para rango de precio */
+.price-inputs {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.price-inputs label {
+  font-size: 0.8em;
+  color: #444;
+}
+
+.price-inputs input {
+  width: 80px;
+  padding: 4px;
+  font-size: 0.9em;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  text-align: center;
+}
+
+/* Botón de aplicar filtro */
+#filterButton {
+  background: #cddc39;
+  border: none;
+  color: white;
+  font-weight: bold;
+  padding: 8px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  width: 100%;
+  transition: background 0.3s;
+}
+
+#filterButton:hover {
+  background: #8cae00;
+}
+
+
+/* --- Modal de producto --- */
+.product-modal {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.5); /* fondo oscuro semi-transparente */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.product-modal.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Contenido del modal */
+.modal-content {
+  background: white;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 800px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 24px;
+  position: relative;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  transform: translateY(-20px);
+  transition: transform 0.3s ease;
+}
+
+.product-modal.visible .modal-content {
+  transform: translateY(0);
+}
+
+/* Botón cerrar modal */
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #666;
+  transition: color 0.2s ease;
+}
+
+.modal-close:hover {
+  color: #e53935;
+}
+
+/* Contenedor principal dentro del modal */
+.modal-product {
+  display: flex;
+  gap: 24px;
+}
+
+/* Imagen del producto */
+.modal-product-image {
+  flex: 0 0 50%;
+}
+
+.modal-product-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+/* Información del producto */
+.modal-product-info {
+  flex: 1;
+}
+
+.modal-product-info h2 {
+  margin-top: 0;
+  color: #333;
+}
+
+.modal-product-info p {
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Precio destacado */
+.modal-product-price {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #2d8f5a;
+  margin: 16px 0;
+}
+
+/* Control de cantidad */
+.modal-quantity {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.modal-quantity span {
+  font-weight: bold;
+}
+
+/* Contenedor para input y botones de cantidad */
+.quantity-input {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.quantity-input button {
+  background: #f0f4e8;
+  border: none;
+  width: 32px;
+  height: 32px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.quantity-input button:hover {
+  background: #d0e0c0;
+}
+
+.quantity-input input {
+  width: 40px;
+  text-align: center;
+  border: none;
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  height: 32px;
+}
+
+/* Botones de acción dentro del modal */
+.modal-actions {
+  display: flex;
+  gap: 12px;
+}
+
+/* --- Media Queries para responsive --- */
+@media (max-width: 768px) {
+  .product-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .modal-product {
+    flex-direction: column;
+  }
+  
+  .modal-product-image {
+    flex: 0 0 100%;
+  }
+}
+
+@media (max-width: 400px) {
+  .product-list {
+    grid-template-columns: 1fr;
+  }
+  
+  .nav-logo {
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .main-nav {
+    flex-direction: column;
+  }
+  
+  .nav-controls {
+    width: 100%;
+    margin-top: 12px;
+  }
+}
+
+.product-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.add-to-cart-btn {
+  position: absolute;
+  bottom: -40px;
+  left: 0;
+  right: 0;
+  background: #FFA500;
+  color: white;
+  padding: 12px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  opacity: 0;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.product-card:hover .add-to-cart-btn {
+  bottom: 0;
+  opacity: 1;
+}
+
+.add-to-cart-btn:hover {
+  background: #FF8C00;
+  transform: translateY(-2px);
+}
